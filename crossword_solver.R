@@ -15,7 +15,7 @@ require(stringr)
 
 #TODO: put this into a notebook with an easily enterable interface
 
-pattern <- "t.s.l."
+pattern <- "a.t.r.a.e"
 
 # word_list <- words:words
 
