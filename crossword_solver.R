@@ -1,32 +1,41 @@
 # script generated with the aid of MS Copilot at CUIMC
+#TODO: put this into a notebook with an easily enterable interface
 
 # ---- Setup ----
 
-# require(words) # allegedly 175K English words but comes out as 980
+require(stringr) # for string matching
+require(words) # scrabble dictionary of 175K words
 # other options: wordnet, https://github.com/dwyl/english-words, https://github.com/dolph/dictionary 
 
+# ---- Word Lists ----
 
-# word_list <- words:words # use the words package which maybe out of date
-word_list <- readLines("/usr/share/dict/words") # this is the built in unix dictionary and it contains some bizarre words (n=235K)
+# load the scrabble dictionary of 175K words
+data("words")  
+scrabble_word_list <- words$word 
 
-# Optional: Load from a local file
-# word_list <- readLines("path/to/your/wordlist.txt")
+# load the built-in unix dictionary of 235K words
+unix_word_list <- readLines("/usr/share/dict/words") 
 
+# optional: Load a wordlist from a local file
+# custom_word_list <- readLines("path/to/your/wordlist.txt")
 
-require(stringr)
+# ---- Parameters ----
 
+# The pattern to match: a dot means a single character
+pattern <- "c.s...n"
 
-# ---- Data and Parameters ----
-
-#TODO: put this into a notebook with an easily enterable interface
-
-pattern <- ".t.r.a.e"
-
-# ---- Find the words ----
-
-
-# Convert pattern to regex (if needed)
+# Convert pattern to regex
 regex_pattern <- paste0("^", pattern, "$")
+
+# ---- Find Matching Words ----
+
+# choose the word list to use
+
+word_list <- scrabble_word_list
+# word_list <- unix_word_list
+# word_list <- custom_word_list
+
+# match
 matching_words <- word_list[str_detect(word_list, regex_pattern)]
 
 # Print results
