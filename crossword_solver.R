@@ -22,7 +22,7 @@ unix_word_list <- readLines("/usr/share/dict/words")
 # ---- Parameters ----
 
 # The pattern to match: a dot means a single character
-pattern <- "c.s...n"
+pattern <- ".i.n.r.o.i.e"
 
 # Convert pattern to regex
 regex_pattern <- paste0("^", pattern, "$")
@@ -31,7 +31,7 @@ regex_pattern <- paste0("^", pattern, "$")
 
 # choose the word list to use
 
-word_list <- scrabble_word_list
+# word_list <- scrabble_word_list
 # word_list <- unix_word_list
 # word_list <- custom_word_list
 
